@@ -1,0 +1,11 @@
+.Card {
+    margin-bottom: 15px;
+}
+
+.Card label{
+    color:black;
+    font-family: system-ui;
+    font-size: x-large;
+    font-weight: 500;
+    padding-left: 15px;
+}

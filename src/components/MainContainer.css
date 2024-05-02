@@ -1,0 +1,38 @@
+.List{
+    display: flex;
+}
+.ListContainer {
+    padding: 20px;
+    background-color: lightgray;
+    border-radius: 8px;
+    margin: 20px;
+    width: 31%;
+}
+
+.ListContainer label{
+    color:black;
+    font-family: system-ui;
+    font-size: x-large;
+    font-weight: 500;
+    padding-left: 15px;
+    padding-bottom: 5px;
+}
+
+.Title {
+    text-align: left;
+    padding-left: 30px;
+    color:white;
+    font-family: system-ui;
+    font-size: x-large;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Title button{
+    margin-right: 25px;
+    margin-top: 5px;
+}
+
+.message {
+    color: red;
+}
