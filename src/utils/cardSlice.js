@@ -8,19 +8,19 @@ const cardSlice = createSlice({
       {
         title: "Groceries",
         description:
-          "Lorem ipsum dolor sit.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
         column: "toDo",
       },
       {
         title: "Shopping",
         description:
-          "Lorem ipsum dolor sit.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
         column: "doing",
       },
       {
         title: "Pay bills",
         description:
-          "Lorem ipsum dolor sit.",
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
         column: "done",
       },
     ],
@@ -44,7 +44,10 @@ const cardSlice = createSlice({
           i.description === state.editedItems.description &&
           i.column === state.editedItems.column
       );
-      index !== -1 && state.cardItems.splice(index, 1, action.payload);
+      if(index !== -1) {
+        state.cardItems.splice(index, 1);
+        state.cardItems.push(action.payload);
+      }
     },
     deleteCard: (state, action) => {
       let index = state.cardItems.findIndex(

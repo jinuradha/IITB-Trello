@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Documentation File for Trello Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. "App.js" contains "Header" component and "MainContainer" component
+     - Header contains icons and logo (static)
+     - MainContainer contains 3 columns, modal and "Add Card" button
 
-## Available Scripts
+2. Inside "MainContainer":
+     - when "Add Card" button is clicked "showModal" variable is toggled to true
+       and "AddCardModal" component is conditionally rendered.
+     - the 3 columns are rendered through "ListContainer" component.
+     - for displaying the cards, "cardItems" array is declared using state variable.
+     - "cardItems" array consists of objects like: {title: "Groceries", description: "Some Description", column: "toDo"} 
 
-In the project directory, you can run:
+3. Modal pop-up:
+     - Bootstrap Modal and Form are used to show form inside modal.
+     - Modal Footer consists of "Delete Card" and "Save" to delete and save the card respectively.
+     - on clicking "Save" button, form is validated and "addCard" action is dispatched which pushes the card inside cards array.
+     - on clicking "Delete  Card" button, "deleteCard" action is dispatch which deletes the card from cards array. 
+     - for closing the modal, "showModal" is set to false.
 
-### `npm start`
+4. Edit Card:
+     - when the card is clicked, "showModal" is toggled.
+     - the pre-filled data is displayed using state variable and on changing the data setState is called.
+     - after "Save" button is clicked, "editExistingCard" action is dispatched to replace the old array element with new one.
+     - with the help of useEffect, on component update the component's state is set and the form is also validated for edited card.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+5. Drag and Drop:
+    - for drag and drop, html5 properties like draggable, onDrag, onDragOver, and onDrop is used.
+    - onDrag, the "onDragCard" action is dispatched which deletes the previous array element and its new column is saved in state.
+    - onDrop, the "onDropCard" action is dispatched which pushes the card with changed column in "cardItems" array.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Libraries used for project:
+  - Redux for state management
+  - Bootstrap for using in-build styled Components
+  - Firebase for deploying the project.
